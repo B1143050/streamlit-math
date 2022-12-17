@@ -6,7 +6,7 @@ import streamlit_pydantic as sp
 
 st.title("Collatz Conjecture")
 st.subheader('Simplest or Hardest Mathematical Conjecture? 最簡單或者是最困難的數學猜測?')
-st.markdown(" Start from a randomly selected integer, and it is divided by 2 if it is even, else  multiples 3 and adds 1. Continue this processing  until being 1.  It is always being 1. 任取一個整數，如果是偶數則除以 2，如果是奇數 x3+1 ，持續這個步驟，直到直到最後為一才結束. 結果總是為一.")
+st.markdown(" Start from a randomly selected integer, and divided by 2 if it's evens else multiples 3 and adds 1. Continue this step until being 1.  It is always being 1. 任取一個整數，如果是偶數則除以 2，如果是奇數 x3+1 ，持續這個步驟，直到直到最後為一才結束. 結果總是為一.")
 
 def collatz_conjecture(num,print='all'):
    #num = int(input('Enter a number: '))
@@ -37,4 +37,12 @@ if data:
     result = data.dict()
     seed = result["seed_number"]
     flow = collatz_conjecture(seed)
-    st.write(f'{flow}')
+    #st.write(f'{flow}')
+    t=''
+    for i in range(len(flow)-1):
+        if flow[i]%2 ==0:
+            t+=' <font color="red"> %s </font> ➜ ' %flow[i]
+        else:
+            t+='<font style="color:black"> %s </font> ➜ ' %flow[i]
+    t+=' <font color="black"> 1 </font>  '      
+    st.markdown(t, unsafe_allow_html=True)
