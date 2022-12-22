@@ -43,6 +43,6 @@ if data:
         if flow[i]%2 ==0:
             t+=' <font color="red"> %s </font> ➜ ' %flow[i]
         else:
-            t+='<font style="color:black"> %s </font> ➜ ' %flow[i]
+            t+='<font style="color:blue"> %s </font> ➜ ' %flow[i]
     t+=' <font color="black"> 1 </font>  '      
     st.markdown(t, unsafe_allow_html=True)
